@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background: #FAFCFF;
+}
+
+.title{
+    font-size: 48px;
+    text-transform: uppercase;
+    padding: 15px 0;
+    margin: 10px;
+    font-weight: 700;
+}
+
+.task-create-box{
+    padding: 25px 25px 40px 25px; 
+    margin-top: 25px;
+    margin-bottom: 50px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border: none;
+}
+
+.add-task{
+    font-size:21px;
+    font-weight: 600;
+}
+
+.form-control:focus-visible,.form-select:focus-visible{
+    box-shadow:none;
+}
+
+.submit-btn {
+    width: 145px;
+    background: #3026B9;
+    color: #fff;
+    font-weight: 600;
+}
+
+.submit-btn:hover {
+    background: #fff;
+    color: #3026B9 !important;
+    border: 1px solid #3026B9 !important;
+}
+
+.task{
+    border: none;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    margin: 15px 5px;
+}
+
+.card-header {
+    background: #f8f8ff;
+    border: none;
+}
+

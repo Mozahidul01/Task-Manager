@@ -56,3 +56,47 @@ body{
     border: none;
 }
 
+.status{
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 15px;
+    text-transform: capitalize;
+}
+
+.open{
+    background-color: #38a14a;
+    color: #fff;
+}
+
+.closed{
+    background-color: #f04949;
+    color: #fff;
+}
+
+#low{
+    background-color: #b37e03;
+    color: #fff;
+}
+
+#medium{
+    background-color: #ec5610;
+    color: #fff;
+}
+
+#high{
+    background-color: #d80404;
+    color: #fff;
+}
+
+.task-title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.task-responsible{
+    font-size: 16px;
+    font-weight: 400;
+    color: #7b7b7a;
+    font-style: italic;
+}

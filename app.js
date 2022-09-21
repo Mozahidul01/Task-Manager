@@ -1,24 +1,24 @@
 document.getElementById('taskInputForm').addEventListener('submit', submitTask);
 
 function submitTask(e) {
-  const getInputValue = id => document.getElementById(id).value;
-  const description = getInputValue('taskDescription');
-  const severity = getInputValue('taskSeverity');
-  const assignedTo = getInputValue('taskAssignedTo');
-  const id = Math.floor(Math.random()*10000) + '';
-  let status = 'Open';
+    const getInputValue = id => document.getElementById(id).value;
+    const description = getInputValue('taskDescription');
+    const severity = getInputValue('taskSeverity');
+    const assignedTo = getInputValue('taskAssignedTo');
+    const id = Math.floor(Math.random()*10000) + '';
+    let status = 'Open';
 
-  const task = { id, description, severity, assignedTo, status };
-  let tasks = [];
-  if (localStorage.getItem('tasks')){
+    const task = { id, description, severity, assignedTo, status };
+    let tasks = [];
+    if (localStorage.getItem('tasks')){
     tasks = JSON.parse(localStorage.getItem('tasks'));
-  }
-  tasks.push(task);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+    tasks.push(task);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 
-  document.getElementById('taskInputForm').reset();
-  fetchTasks();
-  e.preventDefault();
+    document.getElementById('taskInputForm').reset();
+    fetchTasks();
+    e.preventDefault();
 }
 
 const closeTask = id => {
@@ -50,21 +50,30 @@ const fetchTasks = () => {
                 <h6>Task ID: ${id} </h6>
             </div>
             <div class="card-body">
-                <div class="hstack gap-3">
-                    <div class="text-bg-warning status">${status}</div>
-                    <div class="text-bg-warning status">${severity}</div>
+                <div class="hstack gap-2">
+                    <div id="status" class="status open">${status}</div>
+                    <div id="${severity}" class="status">${severity}</div>
                 </div>
                 <div class="task-info py-3">
-                    <h4 class="card-title">${description} </h4>
-                    <p class="card-text">${assignedTo}</p>
+                    <h4 class="task-title">${description} </h4>
+                    <p class="task-responsible">${assignedTo}</p>
                 </div>
                 <div class="text-end">
-                    <a href="#" onclick="setStatusClosed(${id})" class="btn btn-outline-warning">Close</a>
+                    <a href="#" onclick="setStatusClosed(${id})" id="closeBtn" class="btn btn-outline-warning">Close</a>
                     <a href="#" onclick="deleteTask(${id})" class="btn btn-outline-danger">Delete</a>
                 </div>
             </div>
         </div>
     </div>
     `;
-  }
+    }
 }
+
+const setStatusClosed = (id) => {
+    const status = document.getElementById('status');
+
+    status.classList.remove('open');
+    status.classList.add('closed')
+    console.log(id)
+}
+

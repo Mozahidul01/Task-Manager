@@ -31,7 +31,6 @@ Mobile View
 - CSS3
 - Bootstrap 5
 - JavaScript
-- API
 
 ### Useful resources
 

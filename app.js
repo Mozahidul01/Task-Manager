@@ -5,7 +5,7 @@ function submitTask(e) {
     const description = getInputValue('taskDescription');
     const severity = getInputValue('taskSeverity');
     const assignedTo = getInputValue('taskAssignedTo');
-    const id = Math.floor(Math.random()*10000) + '';
+    const id = Math.floor(Math.random()*1000) + '';
     let status = 'Open';
 
     const task = { id, description, severity, assignedTo, status };
@@ -21,27 +21,26 @@ function submitTask(e) {
     e.preventDefault();
 }
 
-const closeTask = id => {
-  const tasks = JSON.parse(localStorage.getItem('tasks'));
-  const currentTask = tasks.find(task => task.id === id);
-  currentTask.status = 'Closed';
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-  fetchTasks();
-}
-
-const deleteTask = id => {
-  const tasks = JSON.parse(localStorage.getItem('tasks'));
-  const remainingTasks = tasks.filter( task.id !== id )
-  localStorage.setItem('tasks', JSON.stringify(remainingTasks));
-}
-
 const fetchTasks = () => {
   const tasks = JSON.parse(localStorage.getItem('tasks'));
   const tasksList = document.getElementById('tasksList');
   tasksList.innerHTML = '';
 
   for (var i = 0; i < tasks.length; i++) {
-    const {id, description, severity, assignedTo, status} = tasks[i];
+      const { id, description, severity, assignedTo, status } = tasks[i];
+
+      if (status === "Closed") {
+        descriptionToShow = `<h3 class="task-title" style="text-decoration:line-through"> ${description} </h3>`;
+        closeBtn = ` <button href="#" disabled id="closeBtn" class="btn btn-outline-warning">Close</button>`;
+        statusToshow = `<div id="status" class="tag closed">${status}</div>`;
+      }
+      else {
+        descriptionToShow = `
+            <h3 class="task-title"> ${description} </h3>
+        `;
+          closeBtn = `<button href="#" onclick="closeTask(${id})" id="closeBtn" class="btn btn-outline-warning">Close</button>`;
+          statusToshow = `<div id="status" class="tag open">${status}</div>`;
+      }
 
     tasksList.innerHTML += `
     <div class="col-sm-12 col-md-6 col-lg-4">
@@ -51,29 +50,57 @@ const fetchTasks = () => {
             </div>
             <div class="card-body">
                 <div class="hstack gap-2">
-                    <div id="status" class="status open">${status}</div>
-                    <div id="${severity}" class="status">${severity}</div>
+                    ${statusToshow}
+                    <div id="${severity}" class="tag">
+                        <i class="bi bi-exclamation-circle"></i>
+                        ${severity}
+                    </div>
                 </div>
                 <div class="task-info py-3">
-                    <h4 class="task-title">${description} </h4>
-                    <p class="task-responsible">${assignedTo}</p>
+                    ${descriptionToShow}
+                    <p class="task-responsible">
+                        <i class="bi bi-person-circle"></i>
+                        ${assignedTo}
+                    </p>
                 </div>
                 <div class="text-end">
-                    <a href="#" onclick="setStatusClosed(${id})" id="closeBtn" class="btn btn-outline-warning">Close</a>
+                    ${closeBtn}
                     <a href="#" onclick="deleteTask(${id})" class="btn btn-outline-danger">Delete</a>
                 </div>
             </div>
         </div>
     </div>
     `;
+      
+    if (status === "Closed") {
+        const taskStatus = document.getElementById("status").classList;
+          
+        taskStatus.remove("open");
+        taskStatus.add("closed");
+      }
+    
     }
+
 }
 
-const setStatusClosed = (id) => {
-    const status = document.getElementById('status');
 
-    status.classList.remove('open');
-    status.classList.add('closed')
-    console.log(id)
+
+const closeTask = (id) => {
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
+    const currentTask = tasks.find(task => task.id == id);
+    currentTask.status = 'Closed';
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    fetchTasks();
+  }
+  
+
+
+
+const deleteTask = (id) => {
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
+    const remainingTasks = tasks.filter(task => task.id != id );
+     localStorage.setItem('tasks', JSON.stringify(remainingTasks));
+    fetchTasks();
+    console.log(id, remainingTasks);
 }
 

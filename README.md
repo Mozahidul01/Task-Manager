@@ -21,7 +21,7 @@ Mobile View
 
 ### Links
 
-- Code URL: [https://github.com/Mozahidul01/Let-s-cook]
+- Code URL: [https://github.com/Mozahidul01/Task-Manager]
 
 - Live Site URL: [https://task-manager-mozo.pages.dev/]
 

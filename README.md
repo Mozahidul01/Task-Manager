@@ -16,8 +16,22 @@ This is a task management web app in which I utilized HTML, CSS, and Javascript.
 ### Screenshot
 
 Desktop View
+![Desktop Screenshot](/images/desktop-ss.png)
 
 Mobile View
+
+<div id="image-table">
+    <table>
+     <tr>
+         <td style="border:none">
+             <img src="images/mobile-ss-1.png" width="480"/>
+           </td>
+            <td style="border:none">
+             <img src="images/mobile-ss-2.png" width="400"/>
+            </td>
+        </tr>
+    </table>
+</div>
 
 ### Links
 

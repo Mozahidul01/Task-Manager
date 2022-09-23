@@ -34,15 +34,42 @@ body{
 
 .submit-btn {
     width: 145px;
-    background: #3026B9;
+    background: #603F83;
     color: #fff;
     font-weight: 600;
 }
 
 .submit-btn:hover {
     background: #fff;
-    color: #3026B9 !important;
-    border: 1px solid #3026B9 !important;
+    color: #603F83 !important;
+    border: 1px solid #603f83!important;
+}
+
+.counter-group{
+    margin-top: 20px;
+}
+
+.counter{
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 5px;
+    border-radius: 25px;
+    text-transform: capitalize;
+    background-color: #603F83;
+    color: #ffffff;
+}
+
+.counter-text {
+    margin: 0;
+}
+
+.counter-number {
+    background-color: #fbfafc;
+    color: #603F83;
+    font-weight: 700;
+    padding: 2px 9px;
+    margin-left: 5px;
+    border-radius: 50%;
 }
 
 .task{
@@ -66,27 +93,27 @@ body{
 }
 
 .open{
-    background-color: #38a14a;
+    background-color: #5EB234;
     color: #fff;
 }
 
 .closed{
-    background-color: #f04949;
+    background-color: #C91D2B;
     color: #fff;
 }
 
 #low{
-    background-color: #b37e03;
+    background-color: #E8B130;
     color: #fff;
 }
 
 #medium{
-    background-color: #ec5610;
+    background-color: #F79966;
     color: #fff;
 }
 
 #high{
-    background-color: #d80404;
+    background-color: #C91D2B;
     color: #fff;
 }
 

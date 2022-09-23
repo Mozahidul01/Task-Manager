@@ -23,7 +23,7 @@
 
 <body onload="fetchTasks()">
     
-    <div class="container col-lg-5 col-md-6">
+    <div class="container col-lg-6 col-md-10">
 
         <h1 class="title text-center">Task Manager</h1>
 
@@ -46,6 +46,25 @@
                 </div>
 
             </form>
+
+            <div class="row counter-group gap-2 d-flex justify-content-center"> 
+                <div class="counter col-md-4 text-center">
+                    <p class="counter-text">Open Tasks
+                        <span id="OpenTaskCount" class="counter-number">0</span>
+                    </p>
+                </div>
+                <div class="counter col-md-4 text-center">
+                    <p class="counter-text"> Closed Tasks
+                        <span id="closedTaskCount" class="counter-number">0</span>
+                    </p>
+                </div>
+                <div class="counter col-md-4 text-center">
+                    <p class="counter-text">Total Tasks
+                        <span id="totalTaskCount" class="counter-number">0</span>
+                    </p>
+                </div>
+            </div>
+
         </div>
     </div>
 

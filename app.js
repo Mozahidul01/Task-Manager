@@ -17,7 +17,7 @@ function submitTask(e) {
     tasks.push(task);
     localStorage.setItem("tasks", JSON.stringify(tasks));
   } else {
-    alert("Fields Must not be Empty!");
+    alert("Please input Task details");
   }
 
   document.getElementById("taskInputForm").reset();
@@ -43,32 +43,32 @@ const deleteTask = (id) => {
 const fetchTasks = () => {
   const tasks = JSON.parse(localStorage.getItem("tasks"));
   const tasksList = document.getElementById("tasksList");
-  
-    tasksList.innerHTML = "";
-    
-    let closedTask = 0;
-    let openTask = 0;
+
+  tasksList.innerHTML = "";
+
+  let closedTask = 0;
+  let openTask = 0;
 
   for (var i = 0; i < tasks.length; i++) {
     const { id, description, severity, assignedTo, status } = tasks[i];
 
-      if (status === "Closed") {
-          closedTask++;
+    if (status === "Closed") {
+      closedTask++;
       descriptionToShow = `<h3 class="task-title" style="text-decoration:line-through"> ${description} </h3>`;
       closeBtn = ` <button href="#" disabled id="closeBtn" class="btn btn-outline-warning">Close</button>`;
       statusToshow = `<div id="status" class="tag closed">${status}</div>`;
     } else {
-        openTask++;
+      openTask++;
       descriptionToShow = `
             <h3 class="task-title"> ${description} </h3>
         `;
       closeBtn = `<button href="#" onclick="closeTask(${id})" id="closeBtn" class="btn btn-outline-warning">Close</button>`;
       statusToshow = `<div id="status" class="tag open">${status}</div>`;
-      }
-      
-    document.getElementById('OpenTaskCount').innerText = openTask;
-    document.getElementById('closedTaskCount').innerText = closedTask;
-    document.getElementById('totalTaskCount').innerText = openTask + closedTask;
+    }
+
+    document.getElementById("OpenTaskCount").innerText = openTask;
+    document.getElementById("closedTaskCount").innerText = closedTask;
+    document.getElementById("totalTaskCount").innerText = openTask + closedTask;
 
     tasksList.innerHTML += `
     <div class="col-sm-12 col-md-6 col-lg-4">

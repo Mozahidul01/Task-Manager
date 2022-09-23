@@ -34,7 +34,7 @@ Mobile View
 
 ### Useful resources
 
-- [TheMealDB](https://www.themealdb.com/api.php) - I have used this API to collect data.
+- [Filter method by flexiple](https://flexiple.com/javascript/javascript-filter-array/) - This article helps me to understand javascript filters array method more clearly.
 - [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/) - I have used bootstrap as css framework.
 
 ## Author
